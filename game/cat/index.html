@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>抓猫小游戏</title>
+  <script src="https://source.k0191.cyou/js/phaser.min.js"></script>
+  <script src="https://source.k0191.cyou/js/catch_cat.js"></script>
+  <style>
+    #catch-the-cat{
+      display: flex;
+      justify-content: center;
+    }
+    #a1{
+      display: block;
+      width: 100px;
+      height: 50px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="catch-the-cat"></div>
+  <br><br>
+  <center><button id="level1" onclick="gamelevel(15, 25, '简单')" style="width: 100px; height: 50px;">简单</button>
+  <button id="level2" onclick="gamelevel(10, 30, '普通')" style="width: 100px; height: 50px;">普通</button>
+  <button id="level3" onclick="gamelevel(5, 35, '地狱')" style="width: 100px; height: 50px;">地狱</button></center>
+  <br>
+  <center><a id="a1" class="button--animated" href="http://ikuna.cool"><i class="iconfont icon-home"></i>返回博客</a></center>
+</body>
+<script>
+  window.onload = function(){
+    window.game = new CatchTheCatGame({
+        w: 15,
+        h: 15,
+        r: 25,
+        backgroundColor: 0xeeeeee,
+        parent: 'catch-the-cat',
+        statusBarAlign: 'center',
+        credit: '简单难度'
+      });
+  }
+  function gamelevel(levl, rlen, text){
+    var div1 = document.getElementById("catch-the-cat");
+    div1.removeChild(div1.firstChild);
+    window.game = new CatchTheCatGame({
+        w: levl,
+        h: levl,
+        r: rlen,
+        backgroundColor: 0xeeeeee,
+        parent: 'catch-the-cat',
+        statusBarAlign: 'center',
+        credit: text + '难度'
+      });
+  }
+</script>
+</html>
